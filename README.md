@@ -7,6 +7,12 @@ Find the caller name of functions used in middleware
 You want to insert middleware that logs data about where long requests are and
 who is making them
 
+### Install
+
+```
+go get github.com/KlotzAndrew/callername
+```
+
 ### Setup
 
 The main funciton `callername.MiddlewareCallerName` is looking for when a
