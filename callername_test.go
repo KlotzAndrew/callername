@@ -21,18 +21,17 @@ func foo() string {
 }
 
 type testTripper struct {
-	t *testing.T
+	t         *testing.T
+	middlware string
 }
 
 func (t *testTripper) RoundTrip(req *http.Request) (*http.Response, error) {
-	fnName := callername.MiddlewareCallerName("net/http/client.go")
+	fnName := callername.MiddlewareCallerName(t.middlware)
 
 	expected := "callername_test.bar"
 	if fnName != expected {
 		t.t.Fatalf("%s != %s", fnName, expected)
 	}
-
-	// callername.PrintStack()
 
 	return &http.Response{}, nil
 }
@@ -50,12 +49,16 @@ func (t *testTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 // /home/potato/code/go/src/callername/callername_test.go
 // /usr/local/go/src/testing/testing.go
 // /usr/local/go/src/runtime/asm_amd64.s
-func TestGetTripper(t *testing.T) {
-	bar(t)
+func TestGetTripperSuffix(t *testing.T) {
+	bar(t, "net/http/client.go")
 }
 
-func bar(t *testing.T) {
-	tripper := &testTripper{t: t}
+func TestGetTripperContains(t *testing.T) {
+	bar(t, "net/http")
+}
+
+func bar(t *testing.T, middlware string) {
+	tripper := &testTripper{t: t, middlware: middlware}
 	client := &http.Client{Transport: tripper}
 
 	_, err := client.Get("https://google.ca")

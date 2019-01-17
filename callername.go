@@ -26,7 +26,7 @@ func MiddlewareCallerName(middlware string) string {
 	var functionName string
 	for i := 0; i < callerCount; i++ {
 		frame, _ := frames.Next()
-		match := strings.HasSuffix(frame.File, middlware)
+		match := strings.Contains(frame.File, middlware)
 
 		// if we entered and no longer matched we have exited
 		if entered && !match {
