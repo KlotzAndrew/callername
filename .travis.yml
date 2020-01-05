@@ -1,7 +1,7 @@
 language: go
 
 go:
-- 1.13.x
+  - 1.13.x
 
 sudo: false
 
@@ -19,13 +19,14 @@ before_deploy: ci/before_deploy.sh
 
 deploy:
   provider: releases
+  skip_cleanup: true
   draft: true
   api_key:
-    secure: JWBLQWgweRTEu6iWMqHVrgAGcg3DsBM7YeJM72pmXaFuhCd0OsBqr3qwHDXyjOwtRt4Y/ztJMQfkQMrDTyDOND4KmgP2tAXCfFCh+iwggN6t9onjLIf3oY4q5gxof0Hp0+pE0BVIGhBfVtpcXPTJQNkX5A0g05j3Rf12/P2bP/CXEDRTTpfsgFw0VXtxk/DnaV2F272D0v8r2ep0bgSlck8jdFh8bZqudCrTI6JxGX6Ml/vh2YHC+5Yi8teTW5J5trr1jcooQLH/n0Glpj50I3Fet57CZQGy1i6urTQOt2mV4OSxvV2Rw+tWZpzCvlFxbnrGumP1kQNraU16TKHQHIo0sA3TMYTbZ3AGtY6n8zphlrfETYE9PMEBAN6HRaw2iGRn0IUeL1deUGTo5G6Z6QE6d+tbIl0ef086HQ6mW9jnPlIGf/wbAdbi0r1ZbZsxXWL4oucb85h+8hKe58SLVI/oWMkvMQOMqkP6H6qxv+TNLpMWIDWR+W057NBG2AYGE7fu/B0/xE9dusMTD0ugMUWWa5iCLnv4ce1NiP+PWUzNjYwJYDNcDIJ4taK9fak//bGcRXdNhodA/tRFKAG5pZMFP1JXx3PH3iFMMdJQ6x9ZdZIKQzPnwyUgCNNGJ/OzqqMlb4p1QpGfj2s60ghIn1Um6Gp68Ij3nLpqSl/CNVY=
+    secure: M5B06y/LnhXnd3zu4WZnI1PB5bk+psPgUXB8j8diNH23gW9baRYqzmFm9lkdrgIBR9c9l6WlPia6fOK6w0MS0ok4c6r9OG8pHK7KrYFpwnSTYA99dfIS7Vg+G2/21RQduQkUC2XTemWvyjmzvC2Xk3FkFwV6PLjk0+P7ym2FO/g8V/NsRKOEBzQ7twg1taWQBVlT+ZmBizuoaUKdCyFVh4ksCDYebXTjh1Lp2ZQO+4inBKDX2BNxuIbp82LXpZE5C70tyyHiPULKamUSwuDHQqAAOZQ8ZgOFZSlrlfgDXn8Ix4QgFsfvSVT6eMH/q4iWfib9JnYqhoGTrYg0ntv7ZdpbOgW8HpZVw4vdn1u/si99f2t2zJXzL365F5ObXegg0htG6Q2nqHBa89G0GpLkIt+9OVlf6tipL02JKpg9do8/bUdhLv1KY+1qe76qNiI3UlFinOkYg8IoxrrQsVdIWsCCxCXr4ayhgN0PfFOdRXTSlCMzxqMfHCxIYHkDLHpSkFYnhsoWG3XOTmymwZA/IGAlJCcNmSiIVf1Uja6ow5nf7HTV5rHp54TmrAej4j9vSoQ9zj2hH4vp5p2oLLHynV0Itop2PAN528GNATJGHilxTAQGE1yv4dmG9Ap/YjwCc2TomAyUE+hO/L+jnQ42SX0VLgxmHuXdUeYHk/fA5bs=
   file:
     - releases/linux-amd64.tar.gz
     - releases/linux-amd64
-    - releases/sha512sum.txt
+    - releases/sha256sums.txt
   on:
     repo: KlotzAndrew/callername
     tags: true
