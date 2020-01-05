@@ -4,13 +4,13 @@ import (
 	"net/http"
 	"testing"
 
-	"callername"
+	"github.com/klotzandrew/callername"
 )
 
 func TestGetName(t *testing.T) {
 	fnName := foo()
 
-	expected := "callername_test.foo"
+	expected := "github.com/klotzandrew/callername_test.foo"
 	if fnName != expected {
 		t.Fatalf("%s != %s", fnName, expected)
 	}

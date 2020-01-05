@@ -1,6 +1,6 @@
 # CallerName
 
-[![Build Status](https://travis-ci.com/KlotzAndrew/dotfiles.svg?branch=master)](https://travis-ci.com/KlotzAndrew/dotfiles)
+[![Build Status](https://travis-ci.com/KlotzAndrew/callername.svg?branch=master)](https://travis-ci.com/KlotzAndrew/callername)
 
 Find the caller name of functions used in middleware
 
