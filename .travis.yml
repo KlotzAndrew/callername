@@ -12,6 +12,7 @@ before_script:
   - go install github.com/golangci/golangci-lint/cmd/golangci-lint
 
 script:
+  - env
   - golangci-lint run
   - go test -v -race ./...
 
